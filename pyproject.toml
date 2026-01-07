@@ -1,0 +1,15 @@
+[project]
+name = "ambiente"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "html5lib>=1.1",
+    "lxml>=6.0.2",
+    "pandas>=2.3.3",
+    "requests>=2.32.5",
+    "sentence-transformers>=5.2.0",
+    "tdqm>=0.0.1",
+]
