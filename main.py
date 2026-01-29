@@ -17,58 +17,43 @@ class PedidoUsuario(BaseModel):
 # 2. A ROTA (O PORTEIRO)
 # ==============================================================================
 @app.post("/api/recomendar")
+@app.post("/api/recomendar")
 def receber_pedido(pedido: PedidoUsuario):
-    """
-    Recebe o JSON do FlutterFlow, chama a IA e devolve no formato Struct.
-    """
-    print(f"\n📩 Recebi um novo pedido do App!")
-    print(f"   Query: {pedido.query_montada[:50]}...")
-    print(f"   Filtros: {pedido.filtros}")
+    print(f"\n📩 Recebi: {pedido.query_montada} | Filtros: {pedido.filtros}")
     
-    # 1. Busca os resultados no Motor (Retorna Lista de Dicionários)
+    # 1. Busca os resultados
     resultados_brutos = buscar_recomendacoes(
         query_texto=pedido.query_montada,
         filtros_dict=pedido.filtros,
         top_k=3
     )
     
-    # 2. Transforma para o formato do FlutterFlow (Listas Paralelas/Struct)
-    lista_nomes = []
-    lista_precos = []
-    lista_motivos = []
-    lista_imagens = [] 
+    # 2. LISTA DE OBJETOS (O jeito que o FlutterFlow gosta)
+    lista_final = []
     
     if not resultados_brutos:
-        # Se não achou nada, manda listas com um aviso
-        lista_nomes = ["Nenhum encontrado"]
-        lista_precos = ["R$ 0,00"]
-        lista_motivos = ["Tente ajustar seus filtros."]
-        lista_imagens = ["https://placehold.co/600x400?text=404"]
+        # Item de erro amigável
+        lista_final.append({
+            "nome": "Nenhum encontrado",
+            "preco": "R$ 0,00",
+            "imagem": "https://placehold.co/600x400?text=404",
+            "motivo": "Tente ajustar seus filtros."
+        })
     else:
         for cel in resultados_brutos:
-            # Preenche as listas separadas
-            lista_nomes.append(cel['nome'])
-            
-            # Formata preço como texto (FlutterFlow espera String)
-            lista_precos.append(f"R$ {cel['preco']:.2f}") 
-            
-            # Cria um motivo baseado no Score da IA
             score_percent = int(cel['match_score'] * 100)
-            lista_motivos.append(f"{score_percent}% de match! Ideal para seu perfil.")
-            
-            # Placeholder de imagem (já que o scraper não pegou URLs de imagem reais)
-            lista_imagens.append("https://placehold.co/600x400/png")
+            # Empacota cada celular num objeto {}
+            celular_obj = {
+                "nome": cel['nome'],
+                "preco": f"R$ {cel['preco']:.2f}",
+                "imagem": cel["img"],
+                "motivo": f"{score_percent}% de match! Ideal para seu perfil."
+            }
+            lista_final.append(celular_obj)
 
-    print(f"✅ Enviando resposta formatada para o App.\n")
-
-    # 3. Retorna o JSON no formato exato da Struct "CelularrecomendadoStruct"
-    return {
-        "nome": lista_nomes,
-        "preco": lista_precos,
-        "imagem": lista_imagens,
-        "motivo": lista_motivos
-    }
-
+    print(f"✅ Enviando lista pronta para o App.\n")
+    # Retorna direto a lista []
+    return lista_final
 # ==============================================================================
 # 3. INICIALIZAÇÃO DO SERVIDOR
 # ==============================================================================
