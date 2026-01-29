@@ -22,6 +22,11 @@ df_completo = pd.read_csv(CAMINHO_CSV)
 # 1. Remover preços zerados ou inválidos
 df_completo = df_completo[df_completo['Preco_Num'] > 0].copy()
 
+# Passo B: REMOVE DUPLICATAS (A Mágica acontece aqui) 
+# subset=['Nome']: Olha apenas a coluna 'Nome' para achar repetidos
+# keep='first': Mantém o primeiro que achar e apaga as cópias seguintes
+df_completo = df_completo.drop_duplicates(subset=['Nome'], keep='first')
+
 # 2. Corrigir TB para GB (Ex: 1.0 virar 1024)
 def corrigir_armazenamento(valor):
     # Se for menor que 10 (ex: 1TB), multiplica por 1024
