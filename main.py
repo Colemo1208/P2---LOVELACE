@@ -32,21 +32,28 @@ def receber_pedido(pedido: PedidoUsuario):
     lista_final = []
     
     if not resultados_brutos:
-        # Item de erro amigável
-        lista_final.append({
-            "nome": "Nenhum encontrado",
-            "preco": "R$ 0,00",
-            "imagem": "https://placehold.co/600x400?text=404",
-            "motivo": "Tente ajustar seus filtros."
-        })
+            # Item de erro amigável
+            lista_final.append({
+                "nome": "Nenhum encontrado",
+                "preco": "R$ 0,00",
+                # AQUI ESTAVA O ERRO! Troque pela linha abaixo:
+                "imagem": "https://dummyimage.com/600x400/000/fff.jpg",
+                "motivo": "Tente ajustar seus filtros."
+            })
     else:
         for cel in resultados_brutos:
             score_percent = int(cel['match_score'] * 100)
-            # Empacota cada celular num objeto {}
+            
+            # --- CÓDIGO ATUALIZADO ---
+            # Tenta pegar a imagem real. Se for um arquivo estranho (SVG), usa a genérica.
+            link_imagem = cel['imagem']
+            if not link_imagem.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
+                link_imagem = "https://dummyimage.com/600x400/000/fff.jpg&text=Sem+Imagem"
+
             celular_obj = {
                 "nome": cel['nome'],
                 "preco": f"R$ {cel['preco']:.2f}",
-                "imagem": cel["img"],
+                "imagem": link_imagem,  # <--- AGORA USA A IMAGEM REAL
                 "motivo": f"{score_percent}% de match! Ideal para seu perfil."
             }
             lista_final.append(celular_obj)
