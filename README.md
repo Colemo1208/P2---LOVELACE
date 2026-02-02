@@ -1,5 +1,7 @@
 # APU
-![[Pasted image 20260202142556.png]]
+p align="center">
+  <img src="assets/logo.jpg" alt="Logo do Appu" width="150"/>
+</p>
 
 ## Nosso APP
 O APU é um aplicativo de Recomendação de Celular que usa webscraping para coletar dados de sites de especificações de celular. Além disso utiliza embedding para vetorizar textos e recomendar os melhores aparelhos para o usuário.
