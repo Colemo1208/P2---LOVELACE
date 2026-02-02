@@ -27,7 +27,7 @@ Para não se preocupar com versões do sistema, recomendamos usar o `uv`. Ele ba
 
 **Instale o uv:**
 ```bash
-curl -LsSf [https://astral.sh/uv/install.sh](https://astral.sh/uv/install.sh) | sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ```bash
