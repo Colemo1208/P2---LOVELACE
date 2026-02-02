@@ -21,15 +21,24 @@ cd ~/APU
 git clone https://github.com/Colemo1208/P2---LOVELACE.git
 ```
 
-## Dataset 
-Dentro da pasta `P2---LOVELACE` já tem um dataset de celulares `dataset_celulares_final.csv`. Porém, é possível rodar o arquivo `datasetmaker.py` e gerar um novo banco de dados maior e mais atualizado. Para isso recomenda-se criar um ambiente virtual e baixar as bibliotecas descritas em `requirements.txt`. Basta rodar essa célula no diretório do projeto:
+## Instalando Python (Método Automático via uv)
+
+Para não se preocupar com versões do sistema, recomendamos usar o `uv`. Ele baixa o Python 3.14 automaticamente para este projeto:
+
+**Instale o uv:**
+```bash
+curl -LsSf [https://astral.sh/uv/install.sh](https://astral.sh/uv/install.sh) | sh
+```
 
 ```bash
-cd ~/APU/P2---LOVELACE 
-python -m venv .venv
+cd ~/APU/P2---LOVELACE
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
 source .venv/bin/activate
-pip install -r requirements.txt
 ```
+
+## Dataset 
+Dentro da pasta `P2---LOVELACE` já tem um dataset de celulares `dataset_celulares_final.csv`. Porém, é possível rodar o arquivo `datasetmaker.py` e gerar um novo banco de dados maior e mais atualizado. Para isso recomenda-se criar um ambiente virtual e baixar as bibliotecas descritas em `requirements.txt`. Basta rodar essa célula no diretório do projeto:
 
 ```bash
 python datasetmaker.py
