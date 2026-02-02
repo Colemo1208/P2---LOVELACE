@@ -18,7 +18,7 @@ cd ~/APU
 ```
 
 ```Bash
-git clone [https://github.com/Colemo1208/P2---LOVELACE.git](https://github.com/Colemo1208/P2---LOVELACE.git)
+git clone https://github.com/Colemo1208/P2---LOVELACE.git
 ```
 
 ## Dataset 
