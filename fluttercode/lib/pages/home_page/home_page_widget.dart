@@ -784,7 +784,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        150.0, 25.0, 10.0, 5.0),
+                                        157.0, 25.0, 10.0, 5.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         await _model.pageViewController
@@ -802,8 +802,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: Color(0xFF3296E4),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -840,8 +839,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
+                                        0.0, 0.0, 5.0, 0.0),
+                                    color: Color(0xFF3296E4),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
@@ -1324,7 +1323,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               .fontStyle,
                                                                         ),
                                                                         fontSize:
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
+                                                                            15.0,
+=======
                                                                             17.0,
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1364,6 +1367,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ),
                                                                         color: Color(
                                                                             0xFF08FF08),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
+                                                                        fontSize:
+                                                                            12.0,
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1397,6 +1405,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: Color(
                                                                             0xFF3296E4),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
+                                                                        fontSize:
+                                                                            11.0,
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1422,6 +1435,51 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ],
                               ),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  FFAppState().objetivoglobal = '';
+                                  FFAppState().listaResultados = [];
+                                  FFAppState().usoselecionado = '';
+                                  safeSetState(() {});
+                                  _model.objetivoSelecionado = 'null';
+                                  _model.listacelulares = [];
+                                  _model.usoselecionado = 'geral\n';
+                                  safeSetState(() {});
+                                  safeSetState(() => _model
+                                      .choiceChipsValueController1?.value = []);
+                                  await _model.pageViewController
+                                      ?.animateToPage(
+                                    0,
+                                    duration: Duration(milliseconds: 500),
+                                    curve: Curves.ease,
+                                  );
+                                },
+                                text: 'fazer nova recomendação',
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF3296E4),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .titleSmallIsCustom,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                             ],
                           ),
                         ],
