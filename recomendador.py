@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer, util
 print("--- [MOTOR] Iniciando sistema de recomendação... ---")
 
 # CAMINHO DO ARQUIVO (Ajuste se necessário)
-CAMINHO_CSV = "dataset_celulares_final.csv"
+CAMINHO_CSV = "/home/caua/LOVELACE/PROJETOS 2/AMBIENTE/dataset_celulares_final.csv"
 
 # Carregar Modelo de IA (Pesado - Fica na memória RAM)
 print("--- [MOTOR] Carregando modelo SentenceTransformer... ---")
