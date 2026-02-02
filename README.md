@@ -1,6 +1,6 @@
 # APU
 p align="center">
-  <img src="assets/logo.jpg" alt="Logo do Appu" width="150"/>
+  <img src="assets/logo.png" alt="Logo do Appu" width="150"/>
 </p>
 
 ## Nosso APP
