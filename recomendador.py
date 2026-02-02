@@ -101,7 +101,7 @@ def buscar_recomendacoes(query_texto, filtros_dict, top_k=3):
         
         resultado_final.append({
             "nome": celular['Nome'],
-            "img":celular["images"],
+            "imagem":celular["images"],
             "marca": celular['Marca'],
             "preco": celular['Preco_Num'],
             "specs": celular['Specs_Completa'][:100] + "...", # Resumo
