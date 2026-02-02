@@ -1323,7 +1323,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               .fontStyle,
                                                                         ),
                                                                         fontSize:
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
                                                                             15.0,
+=======
+                                                                            17.0,
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1363,8 +1367,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ),
                                                                         color: Color(
                                                                             0xFF08FF08),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
                                                                         fontSize:
                                                                             12.0,
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1398,8 +1405,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: Color(
                                                                             0xFF3296E4),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
                                                                         fontSize:
                                                                             11.0,
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1425,6 +1435,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ],
                               ),
+<<<<<<< HEAD:versao final do app (codigos necessarios)/projetos_2_engcommp_lovelace/lib/pages/home_page/home_page_widget.dart
                               FFButtonWidget(
                                 onPressed: () async {
                                   FFAppState().objetivoglobal = '';
@@ -1467,6 +1478,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
+=======
+>>>>>>> f600a16135d7ed71bdff0c107a407a1981c2179f:projetos2engcommplovelace-9jh94s/lib/pages/home_page/home_page_widget.dart
                             ],
                           ),
                         ],

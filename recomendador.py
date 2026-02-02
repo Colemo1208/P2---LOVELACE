@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer, util
 print("--- [MOTOR] Iniciando sistema de recomendação... ---")
 
 # CAMINHO DO ARQUIVO (Ajuste se necessário)
-CAMINHO_CSV = "dataset_celulares_final.csv"
+CAMINHO_CSV = "/home/caua/LOVELACE/PROJETOS 2/AMBIENTE/dataset_celulares_final.csv"
 
 # Carregar Modelo de IA (Pesado - Fica na memória RAM)
 print("--- [MOTOR] Carregando modelo SentenceTransformer... ---")
@@ -21,6 +21,11 @@ df_completo = pd.read_csv(CAMINHO_CSV)
 # --- LIMPEZA DE DADOS (CRUCIAL) ---
 # 1. Remover preços zerados ou inválidos
 df_completo = df_completo[df_completo['Preco_Num'] > 0].copy()
+
+# Passo B: REMOVE DUPLICATAS (A Mágica acontece aqui) 
+# subset=['Nome']: Olha apenas a coluna 'Nome' para achar repetidos
+# keep='first': Mantém o primeiro que achar e apaga as cópias seguintes
+df_completo = df_completo.drop_duplicates(subset=['Nome'], keep='first')
 
 # 2. Corrigir TB para GB (Ex: 1.0 virar 1024)
 def corrigir_armazenamento(valor):
@@ -96,6 +101,7 @@ def buscar_recomendacoes(query_texto, filtros_dict, top_k=3):
         
         resultado_final.append({
             "nome": celular['Nome'],
+            "imagem":celular["images"],
             "marca": celular['Marca'],
             "preco": celular['Preco_Num'],
             "specs": celular['Specs_Completa'][:100] + "...", # Resumo

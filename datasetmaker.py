@@ -10,8 +10,6 @@ MARCAS = ['samsung', 'xiaomi', 'apple', 'motorola', 'realme', 'infinix', 'oppo',
 ANOS_ALVO = ['2024', '2025', '2026'] 
 PAGINAS = 3
 
-
-
 # --- CONEXÃO ---
 session = requests.Session()
 headers = {
@@ -35,11 +33,9 @@ def limpar_preco(texto):
 dados_finais = []
 
 # --- VARREDURA SILENCIOSA ---
-# Apenas uma barra de progresso para as marcas
 pbar = tqdm(MARCAS, desc="Iniciando...", unit="marca")
 
 for marca in pbar:
-    # Atualiza a descrição da barra com a marca atual e quantos já pegou
     pbar.set_description(f"Lendo {marca.upper()} (Capturados: {len(dados_finais)})")
     
     for page in range(1, PAGINAS + 1):
@@ -59,7 +55,6 @@ for marca in pbar:
                 url_produto = link_tag['href']
                 if "/smartphones/" not in url_produto or "buscar" in url_produto: continue
                 
-                # Filtro Rápido (Card)
                 texto_card = card.get_text(" ", strip=True)
                 match_data = re.search(r'(\d{2}/\d{2}/(20\d{2}))', texto_card)
                 
@@ -68,13 +63,16 @@ for marca in pbar:
                 
                 if ano_detectado and ano_detectado not in ANOS_ALVO: continue 
                 
-                # Entrando no produto
                 try:
                     r_prod = session.get(url_produto, timeout=15)
                     soup_prod = BeautifulSoup(r_prod.content, 'html.parser')
                     
                     h1 = soup_prod.find('h1')
                     nome = h1.get_text(strip=True).replace(': Ficha Técnica', '') if h1 else 'Desconhecido'
+                    
+                    # --- MUDANÇA: Busca pela estrutura exata que você mandou (width/height) ---
+                    img_tag = soup_prod.find('img', {'width': '381', 'height': '249'})
+                    link_img = img_tag.get('src') if img_tag else ""
                     
                     if not data_completa:
                         infos = soup_prod.select('.obj-info-item')
@@ -89,7 +87,6 @@ for marca in pbar:
                     
                     if not ano_detectado or ano_detectado not in ANOS_ALVO: continue 
                     
-                    # Extração
                     specs = {}
                     for el in soup_prod.select('.title-item, .title-cat'):
                         chave = el.get_text(strip=True).replace(":", "").strip()
@@ -99,7 +96,6 @@ for marca in pbar:
                             if valor and valor != "Não especificado": 
                                 specs[chave] = valor
                     
-                    # Monta Textão
                     texto_ia_lista = [f"Smartphone: {nome}", f"Marca: {marca.capitalize()}", f"Lançamento: {data_completa}"]
                     for k, v in specs.items(): texto_ia_lista.append(f"{k}: {v}")
                     texto_ia_final = ". ".join(texto_ia_lista) + "."
@@ -109,6 +105,7 @@ for marca in pbar:
                         'Marca': marca.capitalize(),
                         'Ano': data_completa,
                         'Preco_Num': limpar_preco(specs.get('Preço atual')),
+                        'images': link_img,
                         'RAM_Num': limpar_numero(specs.get('Memória RAM')),
                         'Armazenamento_Num': limpar_numero(specs.get('Armazenamento')),
                         'Bateria_Num': limpar_numero(specs.get('Bateria')),
@@ -116,23 +113,20 @@ for marca in pbar:
                         'Url': url_produto
                     })
                     
-                    # Atualiza o contador na barra em tempo real
                     pbar.set_description(f"Lendo {marca.upper()} (Capturados: {len(dados_finais)})")
                     time.sleep(0.05)
                     
                 except Exception: pass
         except Exception: pass
 
-# --- SALVAR ---
 if dados_finais:
     df = pd.DataFrame(dados_finais)
     
-    cols_order = ['Nome', 'Marca', 'Ano', 'Preco_Num', 'RAM_Num', 'Specs_Completa']
+    cols_order = ['Nome', 'Marca', 'Ano', 'Preco_Num', 'images', 'RAM_Num', 'Specs_Completa']
     cols = [c for c in cols_order if c in df.columns] + [c for c in df.columns if c not in cols_order]
     df = df[cols]
     
     df.to_csv("dataset_celulares_final.csv", index=False)
-    print(f"\n✅ Concluído! {len(df)} celulares salvos em 'dataset_celulares_final.csv'.")
-    print(df.head())
+    print(f"\n✅ Concluído! {len(df)} celulares salvos.")
 else:
     print("\n❌ Nada encontrado.")
