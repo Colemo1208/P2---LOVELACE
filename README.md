@@ -112,7 +112,7 @@ Esse link é quem garante a conexão com a API.
 
 ## Mudando link da API
 
-Com o link na área de transferência deve-se acessar com o editor de texto o arquivo `api_calls.dart`. Cole seu link na parte 'SEU_LINK', retire as aspas, no final ficará SEU_LINK/api/recomendar
+Com o link na área de transferência deve-se acessar com o editor de texto o arquivo `api_calls.dart`. Cole seu link na parte 'SEU_LINK', **retire as aspas**. No final ficará SEU_LINK/api/recomendar
 
 ```bash
 nano ~/APU/P2---LOVELACE/fluttercode/lib/backend/api_requests/api_calls.dart
