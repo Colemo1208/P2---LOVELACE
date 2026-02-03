@@ -4,6 +4,7 @@
   <img src="assets/1.png" width="32%" />
   <img src="assets/2.png" width="32%" />
   <img src="assets/3.png" width="32%" />
+  <img src="assets/4.png" width="32%" />
 </p>
 
 ## Nosso APP
@@ -37,7 +38,7 @@ source .venv/bin/activate
 ```
 
 ## Dataset 
-Dentro da pasta `P2---LOVELACE` já tem um dataset de celulares `dataset_celulares_final.csv`. Porém, é possível rodar o arquivo `datasetmaker.py` e gerar um novo banco de dados maior e mais atualizado. Para isso recomenda-se criar um ambiente virtual e baixar as bibliotecas descritas em `requirements.txt`. Basta rodar essa célula no diretório do projeto:
+Dentro da pasta `P2---LOVELACE` já tem um dataset de celulares `dataset_celulares_final.csv`. Porém, é possível rodar o arquivo `datasetmaker.py` e gerar um novo banco de dados maior e mais atualizado.
 
 ```bash
 python datasetmaker.py
@@ -56,12 +57,14 @@ python main.py
 Para o funcionamento do Aplicativo esse terminal deve permanecer ligado. Sua máquina será o servidor que o aplicativo no celular usará para fazer a comunicação
 ## Inicializando Servidor
 
-Para facilitar o download é indicado baixar o snap. Escolha o comando de acordo com seu sistema: **Ubuntu/Debian:**
+Para facilitar o download é indicado baixar o snap. Escolha o comando de acordo com seu sistema: **Ubuntu/Debian:**. É sugerido que abra um novo terminal para executar os próximos passos, visto que esse terminal precisa estar ativo durante todo o processo
 
+- Ubunto
 ```bash
 sudo apt update && sudo apt install snapd
 ```
 
+- Fedora
 ```bash
 sudo dnf install snapd
 ```
@@ -113,7 +116,7 @@ Esse link é quem garante a conexão com a API.
 Com o link na área de transferência deve-se acessar com o editor de texto o arquivo `api_calls.dart`
 
 ```bash
-nano ~/APU/P2---LOVELACE/projetos2engcommplovelace-9jh94s/lib/backend/api_requests/api_calls.dart
+nano ~/APU/P2---LOVELACE/fluttercode/lib/backend/api_requests/api_calls.dart
 ```
 
 ```dart
@@ -166,18 +169,14 @@ Assim o arquivo será salvo e o aplicativo estará pronto para ser compilado
 
 Para rodar o projeto será necessário baixar algumas dependências. Escolha seu sistema operacional: **Ubuntu/Debian:**
 
-Bash
-
-```
+```bash
 sudo apt update
 sudo apt install -y git wget curl unzip bash-completion build-essential openjdk-17-jdk
 ```
 
 **Fedora:**
 
-Bash
-
-```
+```bash
 sudo dnf install -y git wget curl unzip bash-completion java-17-openjdk-devel
 sudo dnf groupinstall -y "Development Tools"
 ```
@@ -186,7 +185,7 @@ Com as ferramentas baixadas e o diretório definido é necessário baixar o Flut
 
 ```bash 
 cd ~/APU 
-git clone [https://github.com/flutter/flutter.git (https://github.com/flutter/flutter.git) -b stable
+git clone https://github.com/flutter/flutter.git -b stable
 ````
 
 No Bash (ou `.bashrc`), rode o seguinte comando para adicionar ao PATH:
@@ -195,12 +194,18 @@ echo 'export PATH="$HOME/APU/flutter/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ````
 
+Assim que rodar pela primeira vez um comando flutter ele irá baixar mais algumas dependências. Poderá visualizar isso com um comando simples como 
+
+```bash
+flutter --version
+```
+
 Com esses passos o Flutter já está baixado no seu PC. Para compilar será necessário baixar o Android Studio.
 
 
 ```bash
 cd ~/Downloads
-wget [https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.28/android-studio-2023.1.1.28-linux.tar.gz](https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.28/android-studio-2023.1.1.28-linux.tar.gz)
+wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.28/android-studio-2023.1.1.28-linux.tar.gz
 ```
 
 
