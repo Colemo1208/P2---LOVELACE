@@ -164,87 +164,12 @@ Ao finalizar use
 
 Assim o arquivo será salvo e o aplicativo estará pronto para ser compilado
 
-## Configurando Flutter
-
-Para rodar o projeto será necessário baixar algumas dependências. Escolha seu sistema operacional: **Ubuntu/Debian:**
-
-```bash
-sudo apt update
-sudo apt install -y git wget curl unzip bash-completion build-essential openjdk-17-jdk
-```
-
-**Fedora:**
-
-```bash
-sudo dnf install -y git wget curl unzip bash-completion java-17-openjdk-devel
-sudo dnf groupinstall -y "Development Tools"
-```
-
-Com as ferramentas baixadas e o diretório definido é necessário baixar o Flutter. Vamos baixar dentro da pasta `~/APU`: 
-
-```bash 
-cd ~/APU 
-git clone https://github.com/flutter/flutter.git -b stable
-````
-
-No Bash (ou `.bashrc`), rode o seguinte comando para adicionar ao PATH:
-```bash
-echo 'export PATH="$HOME/APU/flutter/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-````
-
-Assim que rodar pela primeira vez um comando flutter ele irá baixar mais algumas dependências. Poderá visualizar isso com um comando simples como 
-
-```bash
-flutter --version
-```
-
-Com esses passos o Flutter já está baixado no seu PC. Para compilar será necessário baixar o Android Studio.
-
-
-```bash
-cd ~/Downloads
-wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.28/android-studio-2023.1.1.28-linux.tar.gz
-```
-
-
-
-```bash
-tar -xvf android-studio-*-linux.tar.gz
-mv android-studio ~/APU/
-```
-
-Agora será necessário rodar o Android Studio . O objetivo é baixar por ele as ferramentas de compilação . Rode a seguinte célula e avance na tela que abrir: **Next** > **Standard** > **Next** > **Finish**.
-
-
-
-```bash
-~/APU/android-studio/bin/studio.sh
-```
-
-Configure o diretório do Android:
-
-```bash
-flutter config --android-sdk ~/Android/Sdk
-```
-
-Por fim aceite as licenças :
-
-```bash
-flutter doctor --android-licenses
-```
-
-## Compilando o Código
-
-```bash
-cd ~/APU/P2---LOVELACE/projetos2engcommplovelace-9jh94s
-flutter pub get && flutter build apk --release
-```
-
-O arquivo `.apk` que será compilado ficará em `build/app/outputs/flutter-apk/app-release.apk`. Basta rodar:
-
-```bash
-cd ~/APU/P2---LOVELACE/projetos2engcommplovelace-9jh94sbuild/app/outputs/flutter-apk/
-```
+## Baixando o Docker
 
 Com isso em mãos basta baixar o APK no seu celular e rodar. Lembre que caso o terminal do ngrok seja fechado será necessário mudar novamente o link da API e recompilar um novo APK.
+
+```bash
+cd ~/APU/P2---LOVELACE/fluttercode
+docker run --rm -v "$PWD":/app -w /app ghcr.io/cirruslabs/flutter:stable flutter build apk --release
+```
+
