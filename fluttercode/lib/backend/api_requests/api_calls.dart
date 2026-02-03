@@ -30,7 +30,7 @@ class BuscarcelularesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Buscarcelulares',
       apiUrl:
-          'SEU_LINK',
+          'SEU_LINK'/api/recomendar,
       callType: ApiCallType.POST,
       headers: {},
       params: {},
