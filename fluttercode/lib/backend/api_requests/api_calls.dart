@@ -29,7 +29,7 @@ class BuscarcelularesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Buscarcelulares',
       apiUrl:
-          'https://unverminous-precedentless-chelsey.ngrok-free.dev/api/recomendar',
+          'SEU_LINK/api/recomendar',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
