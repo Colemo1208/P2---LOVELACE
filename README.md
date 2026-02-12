@@ -173,3 +173,15 @@ cd ~/APU/P2---LOVELACE/fluttercode
 docker run --rm -v "$PWD":/app -w /app ghcr.io/cirruslabs/flutter:stable flutter build apk --release
 ```
 
+Caso seja necessário recompilar novamente limpe os arquivos da compilação anterior, basta rodar
+
+```bash
+cd ~/APU/P2---LOVELACE/fluttercode
+sudo rm pubspec.lock
+sudo rm -rf .dart_tool
+sudo rm -rf build
+```
+O arquivo .apk será encontrado em 
+```bash
+~/APU/P2---LOVELACE/fluttercode/build/app/outputs/flutter-apk/app-release.apk
+```
