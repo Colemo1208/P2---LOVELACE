@@ -9,7 +9,11 @@ const kThemeModeKey = '__theme_mode__';
 
 SharedPreferences? _prefs;
 
-enum DeviceSize { mobile, tablet, desktop }
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
 
 abstract class FlutterFlowTheme {
   static DeviceSize deviceSize = DeviceSize.mobile;
@@ -22,8 +26,8 @@ abstract class FlutterFlowTheme {
     return darkMode == null
         ? ThemeMode.system
         : darkMode
-        ? ThemeMode.dark
-        : ThemeMode.light;
+            ? ThemeMode.dark
+            : ThemeMode.light;
   }
 
   static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
@@ -140,10 +144,10 @@ abstract class FlutterFlowTheme {
   TextStyle get bodySmall => typography.bodySmall;
 
   Typography get typography => {
-    DeviceSize.mobile: MobileTypography(this),
-    DeviceSize.tablet: TabletTypography(this),
-    DeviceSize.desktop: DesktopTypography(this),
-  }[deviceSize]!;
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
 }
 
 DeviceSize getDeviceSize(BuildContext context) {
@@ -242,108 +246,108 @@ class MobileTypography extends Typography {
   String get displayLargeFamily => 'Urbanist';
   bool get displayLargeIsCustom => false;
   TextStyle get displayLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 57.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 57.0,
+      );
   String get displayMediumFamily => 'Urbanist';
   bool get displayMediumIsCustom => false;
   TextStyle get displayMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 45.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 45.0,
+      );
   String get displaySmallFamily => 'Urbanist';
   bool get displaySmallIsCustom => false;
   TextStyle get displaySmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 24.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24.0,
+      );
   String get headlineLargeFamily => 'Urbanist';
   bool get headlineLargeIsCustom => false;
   TextStyle get headlineLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 32.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 32.0,
+      );
   String get headlineMediumFamily => 'Urbanist';
   bool get headlineMediumIsCustom => false;
   TextStyle get headlineMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 20.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+      );
   String get headlineSmallFamily => 'Urbanist';
   bool get headlineSmallIsCustom => false;
   TextStyle get headlineSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 18.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+      );
   String get titleLargeFamily => 'Urbanist';
   bool get titleLargeIsCustom => false;
   TextStyle get titleLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 22.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
   String get titleMediumFamily => 'Urbanist';
   bool get titleMediumIsCustom => false;
   TextStyle get titleMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 16.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+      );
   String get titleSmallFamily => 'Urbanist';
   bool get titleSmallIsCustom => false;
   TextStyle get titleSmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 16.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+      );
   String get labelLargeFamily => 'Urbanist';
   bool get labelLargeIsCustom => false;
   TextStyle get labelLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
   String get labelMediumFamily => 'Urbanist';
   bool get labelMediumIsCustom => false;
   TextStyle get labelMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 12.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+      );
   String get labelSmallFamily => 'Urbanist';
   bool get labelSmallIsCustom => false;
   TextStyle get labelSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 11.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 11.0,
+      );
   String get bodyLargeFamily => 'Urbanist';
   bool get bodyLargeIsCustom => false;
   TextStyle get bodyLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 16.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
   String get bodyMediumFamily => 'Urbanist';
   bool get bodyMediumIsCustom => false;
   TextStyle get bodyMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
   String get bodySmallFamily => 'Urbanist';
   bool get bodySmallIsCustom => false;
   TextStyle get bodySmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
 }
 
 class TabletTypography extends Typography {
@@ -354,108 +358,108 @@ class TabletTypography extends Typography {
   String get displayLargeFamily => 'Urbanist';
   bool get displayLargeIsCustom => false;
   TextStyle get displayLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 57.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 57.0,
+      );
   String get displayMediumFamily => 'Urbanist';
   bool get displayMediumIsCustom => false;
   TextStyle get displayMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 45.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 45.0,
+      );
   String get displaySmallFamily => 'Urbanist';
   bool get displaySmallIsCustom => false;
   TextStyle get displaySmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 32.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
   String get headlineLargeFamily => 'Urbanist';
   bool get headlineLargeIsCustom => false;
   TextStyle get headlineLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 32.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 32.0,
+      );
   String get headlineMediumFamily => 'Urbanist';
   bool get headlineMediumIsCustom => false;
   TextStyle get headlineMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 24.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24.0,
+      );
   String get headlineSmallFamily => 'Urbanist';
   bool get headlineSmallIsCustom => false;
   TextStyle get headlineSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 20.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+      );
   String get titleLargeFamily => 'Urbanist';
   bool get titleLargeIsCustom => false;
   TextStyle get titleLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 22.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
   String get titleMediumFamily => 'Urbanist';
   bool get titleMediumIsCustom => false;
   TextStyle get titleMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 18.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+      );
   String get titleSmallFamily => 'Urbanist';
   bool get titleSmallIsCustom => false;
   TextStyle get titleSmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 16.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+      );
   String get labelLargeFamily => 'Urbanist';
   bool get labelLargeIsCustom => false;
   TextStyle get labelLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
   String get labelMediumFamily => 'Urbanist';
   bool get labelMediumIsCustom => false;
   TextStyle get labelMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 12.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+      );
   String get labelSmallFamily => 'Urbanist';
   bool get labelSmallIsCustom => false;
   TextStyle get labelSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 11.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 11.0,
+      );
   String get bodyLargeFamily => 'Urbanist';
   bool get bodyLargeIsCustom => false;
   TextStyle get bodyLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 16.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
   String get bodyMediumFamily => 'Urbanist';
   bool get bodyMediumIsCustom => false;
   TextStyle get bodyMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
   String get bodySmallFamily => 'Urbanist';
   bool get bodySmallIsCustom => false;
   TextStyle get bodySmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
 }
 
 class DesktopTypography extends Typography {
@@ -466,108 +470,108 @@ class DesktopTypography extends Typography {
   String get displayLargeFamily => 'Urbanist';
   bool get displayLargeIsCustom => false;
   TextStyle get displayLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 57.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 57.0,
+      );
   String get displayMediumFamily => 'Urbanist';
   bool get displayMediumIsCustom => false;
   TextStyle get displayMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 45.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 45.0,
+      );
   String get displaySmallFamily => 'Urbanist';
   bool get displaySmallIsCustom => false;
   TextStyle get displaySmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 32.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
   String get headlineLargeFamily => 'Urbanist';
   bool get headlineLargeIsCustom => false;
   TextStyle get headlineLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 32.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 32.0,
+      );
   String get headlineMediumFamily => 'Urbanist';
   bool get headlineMediumIsCustom => false;
   TextStyle get headlineMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 24.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24.0,
+      );
   String get headlineSmallFamily => 'Urbanist';
   bool get headlineSmallIsCustom => false;
   TextStyle get headlineSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 20.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+      );
   String get titleLargeFamily => 'Urbanist';
   bool get titleLargeIsCustom => false;
   TextStyle get titleLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 22.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
   String get titleMediumFamily => 'Urbanist';
   bool get titleMediumIsCustom => false;
   TextStyle get titleMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 18.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+      );
   String get titleSmallFamily => 'Urbanist';
   bool get titleSmallIsCustom => false;
   TextStyle get titleSmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 16.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+      );
   String get labelLargeFamily => 'Urbanist';
   bool get labelLargeIsCustom => false;
   TextStyle get labelLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
   String get labelMediumFamily => 'Urbanist';
   bool get labelMediumIsCustom => false;
   TextStyle get labelMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 12.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+      );
   String get labelSmallFamily => 'Urbanist';
   bool get labelSmallIsCustom => false;
   TextStyle get labelSmall => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w500,
-    fontSize: 11.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 11.0,
+      );
   String get bodyLargeFamily => 'Urbanist';
   bool get bodyLargeIsCustom => false;
   TextStyle get bodyLarge => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.normal,
-    fontSize: 16.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
   String get bodyMediumFamily => 'Urbanist';
   bool get bodyMediumIsCustom => false;
   TextStyle get bodyMedium => GoogleFonts.urbanist(
-    color: theme.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
   String get bodySmallFamily => 'Urbanist';
   bool get bodySmallIsCustom => false;
   TextStyle get bodySmall => GoogleFonts.urbanist(
-    color: theme.secondaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 14.0,
-  );
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
+      );
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
@@ -615,11 +619,9 @@ extension TextStyleHelper on TextStyle {
     String? package,
   }) {
     if (useGoogleFonts && fontFamily != null) {
-      font = GoogleFonts.getFont(
-        fontFamily,
-        fontWeight: fontWeight ?? this.fontWeight,
-        fontStyle: fontStyle ?? this.fontStyle,
-      );
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
     }
 
     return font != null

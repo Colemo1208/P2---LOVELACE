@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-enum AnimationTrigger { onPageLoad, onActionTrigger }
+enum AnimationTrigger {
+  onPageLoad,
+  onActionTrigger,
+}
 
 class AnimationInfo {
   AnimationInfo({
@@ -66,8 +69,7 @@ extension AnimatedWidgetExtension on Widget {
             controller: animationInfo.controller,
             autoPlay: false,
             effects: animationInfo.effects,
-            child: this,
-          )
+            child: this)
         : this;
   }
 }
@@ -80,12 +82,12 @@ class TiltEffect extends Effect<Offset> {
     Offset? begin,
     Offset? end,
   }) : super(
-         delay: delay,
-         duration: duration,
-         curve: curve,
-         begin: begin ?? const Offset(0.0, 0.0),
-         end: end ?? const Offset(0.0, 0.0),
-       );
+          delay: delay,
+          duration: duration,
+          curve: curve,
+          begin: begin ?? const Offset(0.0, 0.0),
+          end: end ?? const Offset(0.0, 0.0),
+        );
 
   @override
   Widget build(

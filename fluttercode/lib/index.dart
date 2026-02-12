@@ -1,4 +1,3 @@
 // Export pages
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/resultadospage/resultadospage_widget.dart'
-    show ResultadospageWidget;
+export '/components/pages/home_page/home_page_widget.dart' show HomePageWidget;
+export '/components/pages/inicio/inicio_widget.dart' show InicioWidget;

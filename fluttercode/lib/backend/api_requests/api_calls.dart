@@ -17,8 +17,7 @@ class BuscarcelularesCall {
   }) async {
     final varMarcas = _serializeList(varMarcasList);
 
-    final ffApiRequestBody =
-        '''
+    final ffApiRequestBody = '''
 {
   "query_montada": "${escapeStringForJson(varQuery)}",
   "filtros": {
@@ -30,7 +29,7 @@ class BuscarcelularesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Buscarcelulares',
       apiUrl:
-          'SEU_LINK'/api/recomendar,
+          'https://unverminous-precedentless-chelsey.ngrok-free.dev/api/recomendar',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -45,23 +44,39 @@ class BuscarcelularesCall {
     );
   }
 
-  static List<String>? nomes(dynamic response) =>
-      (getJsonField(response, r'''$[:].nome''', true) as List?)?.withoutNulls
+  static List<String>? nomes(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].nome''',
+        true,
+      ) as List?)
+          ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List<String>? precos(dynamic response) =>
-      (getJsonField(response, r'''$[:].preco''', true) as List?)?.withoutNulls
+  static List<String>? precos(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].preco''',
+        true,
+      ) as List?)
+          ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List<String>? imagens(dynamic response) =>
-      (getJsonField(response, r'''$[:].imagem''', true) as List?)?.withoutNulls
+  static List<String>? imagens(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].imagem''',
+        true,
+      ) as List?)
+          ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List<String>? motivos(dynamic response) =>
-      (getJsonField(response, r'''$[:].motivo''', true) as List?)?.withoutNulls
+  static List<String>? motivos(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].motivo''',
+        true,
+      ) as List?)
+          ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();

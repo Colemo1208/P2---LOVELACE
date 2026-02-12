@@ -1,6 +1,6 @@
+import '/components/pages/home_page/home_page_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/home_page/home_page_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'main_web_nav_model.dart';
@@ -42,27 +42,29 @@ class _MainWebNavWidgetState extends State<MainWebNavWidget> {
     return Container(
       width: 270.0,
       height: double.infinity,
-
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-
         boxShadow: [
           BoxShadow(
             blurRadius: 0.0,
             color: FlutterFlowTheme.of(context).lineColor,
-            offset: Offset(1.0, 0.0),
-          ),
+            offset: Offset(
+              1.0,
+              0.0,
+            ),
+          )
         ],
       ),
-
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 32.0, 24.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(mainAxisSize: MainAxisSize.max, children: []),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [],
+            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
               child: InkWell(
@@ -75,15 +77,16 @@ class _MainWebNavWidgetState extends State<MainWebNavWidget> {
                     context,
                     PageTransition(
                       type: PageTransitionType.fade,
-
                       duration: Duration(milliseconds: 0),
                       reverseDuration: Duration(milliseconds: 0),
                       child: HomePageWidget(),
                     ),
                   );
                 },
-
-                child: Row(mainAxisSize: MainAxisSize.max, children: []),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [],
+                ),
               ),
             ),
             Expanded(
@@ -92,7 +95,6 @@ class _MainWebNavWidgetState extends State<MainWebNavWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
-
                   children: [],
                 ),
               ),

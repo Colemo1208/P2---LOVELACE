@@ -77,11 +77,13 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
     super.initState();
     choiceChipValues = List.from(selectedValues);
     if (!widget.initialized && choiceChipValues.isNotEmpty) {
-      SchedulerBinding.instance.addPostFrameCallback((_) {
-        if (widget.onChanged != null) {
-          widget.onChanged!(choiceChipValues);
-        }
-      });
+      SchedulerBinding.instance.addPostFrameCallback(
+        (_) {
+          if (widget.onChanged != null) {
+            widget.onChanged!(choiceChipValues);
+          }
+        },
+      );
     }
   }
 
@@ -92,66 +94,65 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
 
   @override
   Widget build(BuildContext context) {
-    final children = widget.options.map<Widget>((option) {
-      final selected = selectedValues.contains(option.label);
-      final style = selected
-          ? widget.selectedChipStyle
-          : widget.unselectedChipStyle;
-      return Theme(
-        data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-        child: ChoiceChip(
-          selected: selected,
-          onSelected: widget.onChanged != null
-              ? (isSelected) {
-                  choiceChipValues = List.from(selectedValues);
-                  if (isSelected) {
-                    widget.multiselect
-                        ? choiceChipValues.add(option.label)
-                        : choiceChipValues = [option.label];
-                    widget.controller.value = List.from(choiceChipValues);
-                    setState(() {});
-                  } else {
-                    if (widget.multiselect) {
-                      choiceChipValues.remove(option.label);
+    final children = widget.options.map<Widget>(
+      (option) {
+        final selected = selectedValues.contains(option.label);
+        final style =
+            selected ? widget.selectedChipStyle : widget.unselectedChipStyle;
+        return Theme(
+          data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+          child: ChoiceChip(
+            selected: selected,
+            onSelected: widget.onChanged != null
+                ? (isSelected) {
+                    choiceChipValues = List.from(selectedValues);
+                    if (isSelected) {
+                      widget.multiselect
+                          ? choiceChipValues.add(option.label)
+                          : choiceChipValues = [option.label];
                       widget.controller.value = List.from(choiceChipValues);
                       setState(() {});
+                    } else {
+                      if (widget.multiselect) {
+                        choiceChipValues.remove(option.label);
+                        widget.controller.value = List.from(choiceChipValues);
+                        setState(() {});
+                      }
                     }
+                    widget.onChanged!(choiceChipValues);
                   }
-                  widget.onChanged!(choiceChipValues);
-                }
-              : null,
-          label: Text(
-            option.label,
-            style: style.textStyle,
-            overflow: TextOverflow.ellipsis,
-          ),
-          labelPadding: style.labelPadding,
-          avatar: option.iconData != null
-              ? FaIcon(
-                  option.iconData,
-                  size: style.iconSize,
-                  color: style.iconColor,
-                )
-              : null,
-          elevation: style.elevation,
-          disabledColor: widget.disabledColor,
-          selectedColor: selected
-              ? widget.selectedChipStyle.backgroundColor
-              : null,
-          backgroundColor: selected
-              ? null
-              : widget.unselectedChipStyle.backgroundColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: style.borderRadius ?? BorderRadius.circular(16),
-            side: BorderSide(
-              color: style.borderColor ?? Colors.transparent,
-              width: style.borderWidth ?? 0,
+                : null,
+            label: Text(
+              option.label,
+              style: style.textStyle,
+              overflow: TextOverflow.ellipsis,
             ),
+            labelPadding: style.labelPadding,
+            avatar: option.iconData != null
+                ? FaIcon(
+                    option.iconData,
+                    size: style.iconSize,
+                    color: style.iconColor,
+                  )
+                : null,
+            elevation: style.elevation,
+            disabledColor: widget.disabledColor,
+            selectedColor:
+                selected ? widget.selectedChipStyle.backgroundColor : null,
+            backgroundColor:
+                selected ? null : widget.unselectedChipStyle.backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: style.borderRadius ?? BorderRadius.circular(16),
+              side: BorderSide(
+                color: style.borderColor ?? Colors.transparent,
+                width: style.borderWidth ?? 0,
+              ),
+            ),
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        ),
-      );
-    }).toList();
+        );
+      },
+    ).toList();
 
     if (widget.wrapped) {
       return Wrap(
@@ -167,7 +168,9 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
         clipBehavior: Clip.none,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: children.divide(SizedBox(width: widget.chipSpacing)),
+          children: children.divide(
+            SizedBox(width: widget.chipSpacing),
+          ),
         ),
       );
     }

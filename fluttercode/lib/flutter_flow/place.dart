@@ -20,8 +20,7 @@ class FFPlace {
   final String zipCode;
 
   @override
-  String toString() =>
-      '''FFPlace(
+  String toString() => '''FFPlace(
         latLng: $latLng,
         name: $name,
         address: $address,

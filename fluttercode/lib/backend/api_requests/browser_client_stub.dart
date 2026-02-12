@@ -24,7 +24,6 @@ class BrowserClient extends http.BaseClient {
     // Delegate to a standard client (this should never be called on non-web)
     return http.Client().send(request);
   }
-
   // OPTIONAL: close() has a default empty implementation in BaseClient
   // We can omit it since BaseClient provides a default
 }

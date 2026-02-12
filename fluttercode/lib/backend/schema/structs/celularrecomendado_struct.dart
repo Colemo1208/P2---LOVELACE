@@ -11,10 +11,10 @@ class CelularrecomendadoStruct extends BaseStruct {
     List<String>? preco,
     List<String>? imagem,
     List<String>? motivo,
-  }) : _nome = nome,
-       _preco = preco,
-       _imagem = imagem,
-       _motivo = motivo;
+  })  : _nome = nome,
+        _preco = preco,
+        _imagem = imagem,
+        _motivo = motivo;
 
   // "nome" field.
   List<String>? _nome;
@@ -73,17 +73,17 @@ class CelularrecomendadoStruct extends BaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-    'nome': _nome,
-    'preco': _preco,
-    'imagem': _imagem,
-    'motivo': _motivo,
-  }.withoutNulls;
+        'nome': _nome,
+        'preco': _preco,
+        'imagem': _imagem,
+        'motivo': _motivo,
+      }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => toMap();
   static CelularrecomendadoStruct fromSerializableMap(
-    Map<String, dynamic> data,
-  ) => fromMap(data);
+          Map<String, dynamic> data) =>
+      fromMap(data);
 
   @override
   String toString() => 'CelularrecomendadoStruct(${toMap()})';

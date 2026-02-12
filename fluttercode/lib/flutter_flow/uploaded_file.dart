@@ -22,14 +22,16 @@ class FFUploadedFile {
   String toString() =>
       'FFUploadedFile(name: $name, bytes: ${bytes?.length ?? 0}, height: $height, width: $width, blurHash: $blurHash, originalFilename: $originalFilename,)';
 
-  String serialize() => jsonEncode({
-    'name': name,
-    'bytes': bytes,
-    'height': height,
-    'width': width,
-    'blurHash': blurHash,
-    'originalFilename': originalFilename,
-  });
+  String serialize() => jsonEncode(
+        {
+          'name': name,
+          'bytes': bytes,
+          'height': height,
+          'width': width,
+          'blurHash': blurHash,
+          'originalFilename': originalFilename,
+        },
+      );
 
   static FFUploadedFile deserialize(String val) {
     final serializedData = jsonDecode(val) as Map<String, dynamic>;
@@ -52,8 +54,14 @@ class FFUploadedFile {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(name, bytes, height, width, blurHash, originalFilename);
+  int get hashCode => Object.hash(
+        name,
+        bytes,
+        height,
+        width,
+        blurHash,
+        originalFilename,
+      );
 
   @override
   bool operator ==(other) =>

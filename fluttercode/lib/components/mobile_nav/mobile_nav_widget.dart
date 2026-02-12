@@ -40,38 +40,35 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
     return Visibility(
       visible: responsiveVisibility(
         context: context,
-
         tabletLandscape: false,
         desktop: false,
       ),
       child: Container(
         width: double.infinity,
         height: 100.0,
-
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-
           boxShadow: [
             BoxShadow(
               blurRadius: 0.0,
               color: FlutterFlowTheme.of(context).lineColor,
-              offset: Offset(0.0, -1.0),
-            ),
+              offset: Offset(
+                0.0,
+                -1.0,
+              ),
+            )
           ],
         ),
-
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 34.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
-
             children: [
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
-
                   children: [],
                 ),
               ),
@@ -81,7 +78,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [],
                   ),
                 ),
@@ -92,7 +88,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [],
                   ),
                 ),
@@ -103,7 +98,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [],
                   ),
                 ),
@@ -114,7 +108,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [],
                   ),
                 ),
